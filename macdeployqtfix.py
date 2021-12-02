@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 finish the job started by macdeployqtfix
@@ -14,10 +14,10 @@ import re
 from collections import namedtuple
 
 
-QTLIB_NAME_REGEX = r'^(?:@executable_path)?/.*/(Qt[a-zA-Z]*).framework/(?:Versions/\d/)?\1$'
+QTLIB_NAME_REGEX = r'^(?:@rpath)?/.*/(Qt[a-zA-Z]*).framework/(?:Versions/\d/)?\1$'
 QTLIB_NORMALIZED = r'$prefix/Frameworks/$qtlib.framework/Versions/$qtversion/$qtlib'
 
-QTPLUGIN_NAME_REGEX = r'^(?:@executable_path)?/.*/[pP]lug[iI]ns/(.*)/(.*).dylib$'
+QTPLUGIN_NAME_REGEX = r'^(?:@rpath)?/.*/[pP]lug[iI]ns/(.*)/(.*).dylib$'
 QTPLUGIN_NORMALIZED = r'$prefix/PlugIns/$plugintype/$pluginname.dylib'
 
 BREWLIB_REGEX = r'^/usr/local/.*/(.*)'
