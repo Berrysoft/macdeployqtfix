@@ -14,7 +14,7 @@ import re
 from collections import namedtuple
 
 
-QTLIB_NAME_REGEX = r'^(?:@rpath)?.*/(Qt[a-zA-Z]*).framework/(?:Versions/\d/)?\1$'
+QTLIB_NAME_REGEX = r'^(?:@rpath)?.*/(Qt[a-zA-Z]*).framework/(?:Versions/.*/)?\1$'
 QTLIB_NORMALIZED = r'$prefix/Frameworks/$qtlib.framework/Versions/$qtversion/$qtlib'
 
 QTPLUGIN_NAME_REGEX = r'^(?:@rpath)?.*/[pP]lug[iI]ns/(.*)/(.*).dylib$'
@@ -172,7 +172,7 @@ def normalize_qtlib_name(filename):
 
     # qtlib normalization settings
     qtlib = rgxret.groups()[0]
-    qtversion = 5
+    qtversion = 'Current'
 
     templ = Template(QTLIB_NORMALIZED)
 
